@@ -1,0 +1,39 @@
+.dish_accordian_up{
+    padding-bottom: 0.5vw;
+    background-color: lightgreen;
+}
+.dish_accordian_down{
+    padding-bottom: 0.5vw;
+    background-color: lightcoral;
+}
+.spacer{
+    margin-left: 22vw;
+}
+
+.name{
+    font-size: 2vw;
+    font-weight: 600;
+    color:gray;
+}
+
+.icon{
+    margin-right:1vw;
+}
+
+.dish_up{
+    margin-left: 10.5vw;
+    font-size: 1.6vw;
+    float: right !important;
+    color: green;
+}
+
+.dish_down{
+    margin-left: 10.5vw;
+    font-size: 1.6vw;
+    float: right !important;
+    color: red;
+}
+
+._button_row{
+    padding-left: 28vw;
+}

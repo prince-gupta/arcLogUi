@@ -1,0 +1,34 @@
+
+mat-sidenav {
+  max-width: 30%;
+}
+
+.mat-sidenav-content,
+ mat-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.scrolling-content {
+  overflow: auto;
+  height: 100%;
+  background: #ededed;
+}
+
+.sidenav_menu{
+      box-shadow: 3px 0 6px rgba(0,0,0,.24);
+      width: 20%;
+      background: #2e333f;
+      color: white;
+}
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.leftMenu{
+    position: absolute;
+}

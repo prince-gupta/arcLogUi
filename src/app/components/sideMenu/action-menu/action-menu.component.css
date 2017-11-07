@@ -1,0 +1,32 @@
+ul {
+    padding: 0;
+}
+
+li {
+    padding-left: 2vw;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+li:hover{
+    padding-left: 2.2vw;
+    background-color:#3f51b5;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a {
+    box-sizing: border-box;
+    display: block;
+    font-weight: 900;
+    line-height: 47px;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 0 16px;
+    position: relative;
+}
+
+li > a > span{
+    margin-left: 1vw;
+}

@@ -1,0 +1,26 @@
+<div [class]="dish_accordian_class">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="name">{{dish.name}}</span>
+      </mat-panel-title>
+      <mat-panel-description>
+        <!--<i [class]="dish_status_class"></i>-->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <i class="fa fa-info icon"></i>{{dish.id}}
+    </mat-form-field>
+    <span class="spacer"></span>
+    <mat-form-field>
+      <i class="fa fa-h-square icon"></i>{{dish.host}}
+    </mat-form-field>
+    <mat-form-field>
+      <span class="_button_row">
+        <button mat-raised-button color="primary">Restart</button>
+        <button mat-raised-button color="warn">Stop</button>
+        </span>
+    </mat-form-field>
+  </mat-expansion-panel>
+</div>
