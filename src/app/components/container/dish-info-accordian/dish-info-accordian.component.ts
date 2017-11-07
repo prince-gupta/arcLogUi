@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Dish } from '../dish-info-table/dish-info-table.component'
 
 @Component({
   selector: 'dish-info-accordian',
@@ -9,20 +10,14 @@ export class DishInfoAccordianComponent implements OnInit {
 
   @Input() dish:Dish
 
-  dish_accordian_class:string
-  dish_status_class:string
-
   constructor() { }
 
   ngOnInit() {
-    if( this.dish.running ){
-      this.dish_accordian_class = "dish_accordian_up";
-      this.dish_status_class="dish_up fa fa-dot-circle-o";
-    }
-    else{
-      this.dish_accordian_class = "dish_accordian_down";
-      this.dish_status_class="dish_down fa fa-dot-circle-o";
-    }
+  }
+
+  getAccordianClass(){
+    const isDishUp = this.dish.running;
+    return {dish_accordian_up: isDishUp, dish_accordian_down:!isDishUp};
   }
 
 }

@@ -5,6 +5,7 @@ import { TreeModule } from 'primeng/primeng';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {PanelModule} from 'primeng/primeng';
 import {MatExpansionModule, MatButtonModule} from '@angular/material';
+import {RouterModule} from '@angular/router'
 
 import { AppComponent } from './app.component';
 
@@ -20,6 +21,8 @@ import {ContainerComponent} from './components/container/container/container.com
 import {ChefInfoContainerComponent} from './components/container/chef-info-container/chef-info-container.component'
 import {DishInfoTableComponent} from './components/container/dish-info-table/dish-info-table.component'
 import {DishInfoAccordianComponent} from './components/container/dish-info-accordian/dish-info-accordian.component'
+
+import {appRoutes} from './routes'
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import {DishInfoAccordianComponent} from './components/container/dish-info-accor
     TreeModule,
     PanelModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

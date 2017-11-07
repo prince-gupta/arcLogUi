@@ -1,4 +1,4 @@
-<div [class]="dish_accordian_class">
+<div [ngClass]="getAccordianClass()">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -19,7 +19,7 @@
     <mat-form-field>
       <span class="_button_row">
         <button mat-raised-button color="primary">Restart</button>
-        <button mat-raised-button color="warn">Stop</button>
+        <button mat-raised-button color="warn" *ngIf="dish.running">Stop</button>
         </span>
     </mat-form-field>
   </mat-expansion-panel>

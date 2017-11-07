@@ -25,6 +25,7 @@ a {
     transition: all .3s;
     padding: 0 16px;
     position: relative;
+    color: white;
 }
 
 li > a > span{
