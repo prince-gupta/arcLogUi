@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'header-nav',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private routeService:ActivatedRoute) { }
 
+  @Input() title:string
   ngOnInit() {
   }
 

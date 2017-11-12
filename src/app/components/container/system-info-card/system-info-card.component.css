@@ -28,21 +28,14 @@
 }
 
 .card-container {
-    background: #1bbc9b;
-    color: white;
+    background: #ffffff;
     max-width: 15vw;
     min-height: 10vw;
     margin-left: 2vw;
     padding-left: 17px;
      box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
      border-radius: 2px;
-}
-.card-container .temp {
-    font-size: 40px;
-    font-weight: 400;
-    display: table-cell;
-    vertical-align: middle;
-    line-height: 1.2;
+     margin-top: 2vw;
 }
 
 h5{
@@ -55,4 +48,47 @@ h5 > i{
 font-size: 27px;
     float: right;
     padding-right: 2vw;
+}
+
+.card_header{
+    height: 67px;
+    box-shadow: 0 12px 20px -10px rgba(255,152,0,.28), 0 4px 20px 0 rgba(0,0,0,.12), 0 7px 8px -5px rgba(255,152,0,.2);
+    border-radius: 3px;
+    width: 79px;
+    margin: -16px 0px 0;
+    display: inline-block;
+    background-color: orange;
+    font-size: 34px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.card_content{
+    color: black;
+    font-size: 32px;
+    font-weight: 400;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+._icon{
+    margin-top: 1vw;
+    font-size: 3vw;
+}
+
+.catogery{
+    color: #999;
+    font-size: 16px;
+    margin-top: -2vw;
+    padding-left: 7vw;
+}
+
+.content{
+    padding-top: 2vw;
+}
+
+.content_value{
+    color: #999;
+    font-size: 1.7vw;
 }

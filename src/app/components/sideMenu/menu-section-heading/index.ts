@@ -1,0 +1,1 @@
+export * from './menu-section-heading.component';

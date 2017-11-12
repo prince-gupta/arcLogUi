@@ -1,19 +1,33 @@
 .dish_accordian_up{
     padding-bottom: 0.5vw;
     background-color: lightgreen;
+    -webkit-transition: 0.5s ;
+  -moz-transition: 0.5s ;
+  transition: 0.5s ;
 }
 .dish_accordian_down{
     padding-bottom: 0.5vw;
     background-color: lightcoral;
+    -webkit-transition: 0.5s ;
+  -moz-transition: 0.5s ;
+  transition: 0.5s ;
 }
 .spacer{
     margin-left: 22vw;
 }
+.btn_spacer{
+    margin-left: 2vw;
+}
 
 .name{
-    font-size: 2vw;
+    font-size: 1vw;
     font-weight: 600;
     color:gray;
+    font: Roboto,Helvetica Neue,sans-serif;
+}
+
+.text_id{
+    font: 400 20px Roboto,Helvetica Neue,sans-serif;
 }
 
 .icon{
@@ -35,5 +49,11 @@
 }
 
 ._button_row{
-    padding-left: 28vw;
+    padding-left: 20vw;
+}
+
+.externalLink {
+    color : #3f51b5;
+    margin-left: 1vw;
+    cursor: pointer;
 }

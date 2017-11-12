@@ -1,10 +1,10 @@
 <div>
   <div class="card-container">
-    <h5>
-      {{header}}
-    
-    <i [class]="icon"></i>
-    </h5>
-    <div class="temp"> {{value}} {{unit}}<br> </div>
+    <div class="card_header">
+    <i [class]="info.icon" ngClass="_icon"></i>
+    </div>
+    <div class="card_content"> 
+      <div class="catogery">{{info.catogery}}</div>
+      <div class="content">{{info.value}} <span class="content_value">{{info.unit}}</span><br> </div></div>
   </div>
 <div>

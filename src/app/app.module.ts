@@ -2,27 +2,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { TreeModule } from 'primeng/primeng';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {PanelModule} from 'primeng/primeng';
-import {MatExpansionModule, MatButtonModule} from '@angular/material';
-import {RouterModule} from '@angular/router'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { PanelModule } from 'primeng/primeng';
+import { MatExpansionModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatGridList, MatGridTile } from '@angular/material';
+import { RouterModule } from '@angular/router'
+import { GrowlModule } from 'primeng/primeng';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
-import {SidenavheaderComponent} from './components/sideMenu/sidenavheader/sidenavheader.component'
-import {ChefhierarchyComponent} from './components/sideMenu/chefhierarchy/chefhierarchy.component'
-import {HeaderNavComponent} from './components/container/header-nav/header-nav.component'
-import {ActionMenuComponent} from './components/sideMenu/action-menu/action-menu.component'
-import {LeftMenuComponent} from './components/sideMenu/left-menu/left-menu.component'
-import {MenuSectionHeadingComponent} from './components/sideMenu/menu-section-heading/menu-section-heading.component'
 
-import {SystemInfoCardComponent} from './components/container/system-info-card/system-info-card.component'
-import {ContainerComponent} from './components/container/container/container.component'
-import {ChefInfoContainerComponent} from './components/container/chef-info-container/chef-info-container.component'
-import {DishInfoTableComponent} from './components/container/dish-info-table/dish-info-table.component'
-import {DishInfoAccordianComponent} from './components/container/dish-info-accordian/dish-info-accordian.component'
+import {
+  SidenavheaderComponent,
+  ChefhierarchyComponent,
+  HeaderNavComponent,
+  ActionMenuComponent,
+  LeftMenuComponent,
+  MenuSectionHeadingComponent,
+  SystemInfoCardComponent,
+  ContainerComponent,
+  ChefInfoContainerComponent,
+  DishInfoTableComponent,
+  DishInfoAccordianComponent,
+  LoggingBoardComponent,
+  DashboardComponent,
+  DishDetailsComponent
+} from './components/index'
 
-import {appRoutes} from './routes'
+import {
+  DishService,
+  ChefHierarchyService
+} from './services/index'
+
+import { appRoutes } from './routes'
 
 @NgModule({
   declarations: [
@@ -37,7 +50,11 @@ import {appRoutes} from './routes'
     ContainerComponent,
     ChefInfoContainerComponent,
     DishInfoTableComponent,
-    DishInfoAccordianComponent
+    DishInfoAccordianComponent,
+    LoggingBoardComponent,
+    DashboardComponent,
+    DishDetailsComponent
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +64,17 @@ import {appRoutes} from './routes'
     PanelModule,
     MatExpansionModule,
     MatButtonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    GrowlModule,
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DishService,
+    ChefHierarchyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

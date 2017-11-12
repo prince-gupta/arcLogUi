@@ -2,25 +2,24 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <span class="name">{{dish.name}}</span>
+        <span class="name">{{dish.name}} </span>
       </mat-panel-title>
       <mat-panel-description>
         <!--<i [class]="dish_status_class"></i>-->
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <mat-form-field>
-      <i class="fa fa-info icon"></i>{{dish.id}}
-    </mat-form-field>
+    <span class="text_id">
+      <i class="fa fa-info icon"></i>{{dish.id}} <i class="fa fa-external-link externalLink" [routerLink] = "['/dish',dish.id]"></i>
+    </span>
     <span class="spacer"></span>
-    <mat-form-field>
+    <span class="text_id">
       <i class="fa fa-h-square icon"></i>{{dish.host}}
-    </mat-form-field>
-    <mat-form-field>
+    </span>
+    <span>
       <span class="_button_row">
-        <button mat-raised-button color="primary">Restart</button>
-        <button mat-raised-button color="warn" *ngIf="dish.running">Stop</button>
+        <button mat-raised-button color="warn" [disabled] = "!dish.running">Stop</button>
         </span>
-    </mat-form-field>
+    </span>
   </mat-expansion-panel>
 </div>

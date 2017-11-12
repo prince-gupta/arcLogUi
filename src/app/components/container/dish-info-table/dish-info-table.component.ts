@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DishService } from '../../../services/dish-service'
+import { Dish } from '../../shared/dish.model'
 
 @Component({
   selector: 'dish-info-table',
@@ -7,29 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DishInfoTableComponent implements OnInit {
-  dish:Dish;
-  dish2:Dish;
-  constructor() { }
+  dishes:Dish[];
+  
+  constructor(private dishService : DishService) { }
   ngOnInit() {
-    this.dish ={
-      'name':'Dish',
-      'id':'123-D',
-      'host':'127.0.0.1',
-      'running':true
-    }
-
-    this.dish2 ={
-      'name':'Dish2',
-      'id':'123-D-2',
-      'host':'127.0.2.1',
-      'running':false
-    }
+    this.dishService.getDishes().subscribe(
+      dishs => 
+        this.dishes = dishs   
+    )
   }
-}
-
-export interface Dish{
-  name:string
-  id:string
-  host:string
-  running:boolean
 }

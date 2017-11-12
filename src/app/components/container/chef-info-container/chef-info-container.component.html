@@ -1,3 +1,14 @@
-<div>
-  <system-info-card header="RAM" [value]="metricsValue" [unit]="metricsUnit" icon="fa fa-hdd-o"></system-info-card>
+<div class="row">
+   <div class="col-md-3">
+         <system-info-card [info]="cpuInfo"></system-info-card>
+    </div>
+     <div class="col-md-3">
+         <system-info-card [info]="hddInfo"></system-info-card>
+    </div>
+    <div class="col-md-3">
+         <system-info-card [info]="ramInfo"></system-info-card>
+    </div>
+    <div class="col-md-3">
+         <system-info-card [info]="osInfo"></system-info-card>
+    </div>
 </div>

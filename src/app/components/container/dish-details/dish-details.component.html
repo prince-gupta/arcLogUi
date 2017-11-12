@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+      <header-nav [title] ="dish?.name"></header-nav>
+      <mat-icon class="example-icon">verified_user</mat-icon>
+</mat-toolbar>
+<p-growl [(value)]="snackMessage"></p-growl>
+<system-info-card [info]="info"></system-info-card>
+
+<div class="spacer"></div>
+
+<div class="query-container mat-elevation-z8">
+  <table class="_table_dish_details">
+    <tr>
+      <td><i class="fa fa-info"></i><span class ="_tab_td_content">{{dish?.id}}</span></td>
+      <td><i class="fa fa-server" [class.live]="dish?.running" [class.dead]="!dish?.running"></i><span class ="_tab_td_content">{{dish?.host}}</span></td>
+      <td><i class="fa fa-database"></i><span class ="_tab_td_content">{{dish?.dataPath}}</span></td>
+      <td><span>
+      <span class="_button_row">
+        <button mat-raised-button color="primary">Restart</button>
+        <span class="btn_spacer"></span>
+        <button mat-raised-button color="warn" *ngIf="dish.running">Stop</button>
+        </span>
+    </span></td>
+    </tr>
+  </table>
+</div>
+<div class="spacer"></div>
+
+<div class="query-container mat-elevation-z8">
+  <div class="query-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput placeholder="Search Log">
+    </mat-form-field>
+    <span class = "fa fa-play query_play" [ngStyle]="{'float':'right'}" title="Execute"></span>
+  </div>
+<hr [ngStyle]="{'width':'98%'}"/>
+  <div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+

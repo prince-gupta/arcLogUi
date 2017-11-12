@@ -16,6 +16,13 @@ li:hover{
     cursor: pointer;
 }
 
+.action_menu_active {
+    padding-left: 2.2vw;
+    color:orange;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 a {
     box-sizing: border-box;
     display: block;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SystemInfo} from '../../shared/index'
 
 @Component({
   selector: 'chef-info-container',
@@ -9,12 +10,39 @@ export class ChefInfoContainerComponent implements OnInit {
 
   constructor() { }
 
-  metricsValue: string = "258"
-  metricsUnit:string ="MB"
-  
+  hddInfo: SystemInfo ={
+    header:"HDD",
+    value:"348/500",
+    unit:"GB",
+    catogery:"Space Usage",
+    icon:"fa fa-hdd-o"
+  }
 
+  ramInfo: SystemInfo ={
+    header:"RAM",
+    value:"10.4/16",
+    unit:"GB",
+    catogery:"RAM Usage",
+    icon:"fa fa-tasks"
+  }
 
-  ngOnInit() {
+  cpuInfo: SystemInfo ={
+    header:"CPU",
+    value:"63",
+    unit:"%",
+    catogery:"CPU Usage",
+    icon:"fa fa-microchip"
+  }
+
+  osInfo: SystemInfo ={
+    header:"",
+    value:"Mac OS",
+    unit:"10.3.0",
+    catogery:"Operating System",
+    icon:"fa fa-apple"
+  }
+
+ngOnInit() {
   }
 
 }

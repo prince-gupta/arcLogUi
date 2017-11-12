@@ -1,5 +1,3 @@
 <div class="dish-info-container">
-  <dish-info-accordian [dish]="dish"></dish-info-accordian>
-    <dish-info-accordian [dish]="dish2"></dish-info-accordian>
-      <dish-info-accordian [dish]="dish"></dish-info-accordian>
+  <dish-info-accordian [dish]="dish" *ngFor = "let dish of dishes"></dish-info-accordian>
 </div>

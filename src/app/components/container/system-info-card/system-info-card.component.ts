@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SystemInfo } from '../../shared/index'
 
 @Component({
   selector: 'system-info-card',
@@ -9,12 +10,8 @@ export class SystemInfoCardComponent implements OnInit {
 
   constructor() { }
 
-  @Input() header:string
-  @Input() value:string
-  @Input() unit:string
-  @Input() icon:string
+  @Input() info:SystemInfo
+  
   ngOnInit() {
-    
   }
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Dish } from '../dish-info-table/dish-info-table.component'
+import { Dish } from '../../shared/dish.model'
 
 @Component({
   selector: 'dish-info-accordian',

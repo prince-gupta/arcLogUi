@@ -1,4 +1,11 @@
 <div>
     <menu-section-heading [heading] = "heading"></menu-section-heading>
-    <p-tree [value]="files"></p-tree>
+    <p-tree [value]="files" selectionMode="single">
+        <ng-template let-node  pTemplate="parent">
+            <div [routerLink]="['/dashboard']" routerLinkActive="hierarchy_active">{{node.label}}</div>
+        </ng-template>
+        <ng-template let-node  pTemplate="default">
+            <div [routerLink]="['/dish',node.id]" routerLinkActive="hierarchy_active"><i class="fa fa-cutlery" [class.green] = "node.running" [class.red] = "!node.running"></i> &nbsp;{{node.label}}</div>
+        </ng-template>
+    </p-tree>
 </div>

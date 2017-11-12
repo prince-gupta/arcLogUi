@@ -4,3 +4,14 @@
     border: none;
     font-size:14px;
 }
+
+.red {
+    color: red;
+}
+.green{
+    color: green;
+}
+
+.hierarchy_active{
+    color: orange;
+}
