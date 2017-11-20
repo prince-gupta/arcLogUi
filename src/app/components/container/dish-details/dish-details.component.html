@@ -15,32 +15,17 @@
       <td><i class="fa fa-database"></i><span class ="_tab_td_content">{{dish?.dataPath}}</span></td>
       <td><span>
       <span class="_button_row">
-        <button mat-raised-button color="primary">Restart</button>
-        <span class="btn_spacer"></span>
-        <button mat-raised-button color="warn" *ngIf="dish.running">Stop</button>
+        <button mat-raised-button color="warn" *ngIf="dish?.running" (click) = "shutdown()">Stop</button>
         </span>
     </span></td>
     </tr>
   </table>
 </div>
 <div class="spacer"></div>
+<mat-progress-bar
+          class="example-margin"
+          color="warn"
+          mode="indeterminate" *ngIf = "processing"></mat-progress-bar>
 
-<div class="query-container mat-elevation-z8">
-  <div class="query-header">
-    <mat-form-field floatPlaceholder="never">
-      <input matInput placeholder="Search Log">
-    </mat-form-field>
-    <span class = "fa fa-play query_play" [ngStyle]="{'float':'right'}" title="Execute"></span>
-  </div>
-<hr [ngStyle]="{'width':'98%'}"/>
-  <div>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-</div>
+<logging-container [dishId]="dish?.id" (isProcessing)="notify($event)"></logging-container>
 

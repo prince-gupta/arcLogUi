@@ -1,0 +1,18 @@
+.query_result_header{
+    background: linear-gradient(to bottom, #f6f7f9 0%, #ebedf0 100%);
+    display: block;
+    text-align: center;
+    padding: .5em .75em;
+    border-bottom: 0 none;
+    border: 1px solid #d9d9d9;
+    color: #1b1d1f;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+
+.query_result_container{
+    background: white;
+    overflow-y: overlay;
+    max-height: 20vw;
+    padding: 1vw;
+}

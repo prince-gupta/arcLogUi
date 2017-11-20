@@ -1,13 +1,4 @@
-import {Component, ElementRef, ViewChild, OnInit} from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/observable/fromEvent';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-logging-board',
@@ -16,10 +7,12 @@ import 'rxjs/add/observable/fromEvent';
 })
 export class LoggingBoardComponent implements OnInit {
 
-  constructor() { }
+  processing:boolean = false;
+  ngOnInit(){
 
+  }
 
-  ngOnInit() {
-    
+  notify(isProcessing:boolean){
+    this.processing = isProcessing;
   }
 }

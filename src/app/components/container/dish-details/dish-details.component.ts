@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { SystemInfo } from '../../shared/index'
 import { Dish } from '../../shared/dish.model'
 import { DishService } from '../../../services/dish-service'
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params, Router, NavigationEnd } from '@angular/router'
 import { Message } from 'primeng/primeng';
+import { Observable } from 'rxjs/Observable'
 
 
 @Component({
@@ -11,11 +12,18 @@ import { Message } from 'primeng/primeng';
   templateUrl: './dish-details.component.html',
   styleUrls: ['./dish-details.component.css']
 })
-export class DishDetailsComponent implements OnInit {
+export class DishDetailsComponent implements OnInit, OnDestroy {
 
-  constructor(private dishService: DishService, private route: ActivatedRoute) { }
+  id: string;
+  subs;
+
+  constructor(private dishService: DishService, private activatedRoute: ActivatedRoute, private router: Router
+  ) {
+
+  }
 
   @Input() dish: Dish;
+  processing:boolean = false;
 
   snackMessage: Message[] = [];
 
@@ -28,17 +36,39 @@ export class DishDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.snackMessage = [];
-    this.route.params.subscribe((params: Params) => {
-      this.dishService.getDishById(this.route.snapshot.params["id"]).subscribe(
-        (dish) => {
-          this.dish = dish;
-          if (!this.dish.running) {
-            this.snackMessage.push({ severity: 'warn', summary: this.dish.name, detail: 'It seems this Dish is not up and running.' });
-          }
-        }
-      );
+    this.router.events.
+    filter(e => (e instanceof NavigationEnd)).
+    subscribe(val => {
+      this.snackMessage = [];
+      this.id = this.activatedRoute.snapshot.params["id"];
+      this.fetchData(this.id);
+      this.subs = Observable.interval(10000).subscribe(x => {
+        this.fetchData(this.id);
+      });
+     
+
     });
   }
 
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
+
+
+  fetchData(id: string) {
+    this.dishService.getDishById(id).subscribe(
+      (dish) => {
+        this.dish = dish;
+        if (!this.dish.running) {
+          this.snackMessage = [];
+          this.snackMessage.push({ severity: 'warn', summary: this.dish.name, detail: 'It seems this Dish is not up and running.' });
+        }
+      }
+    );
+
+  }
+
+  notify(isProcessing:boolean){
+    this.processing = isProcessing;
+  }
 }

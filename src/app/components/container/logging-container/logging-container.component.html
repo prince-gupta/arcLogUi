@@ -1,0 +1,10 @@
+<div class="query-container mat-elevation-z8">
+  <div class="query-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput placeholder="Search Log" #queryInput>
+    </mat-form-field>
+    <span class="fa fa-play query_play" [ngStyle]="{'float':'right'}" title="Execute" (click)="query(queryInput.value)"></span>
+  </div>
+  <hr [ngStyle]="{'width':'98%'}" />
+  <logging-response-container [response]="response"></logging-response-container>
+</div>

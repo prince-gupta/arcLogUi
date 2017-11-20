@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   constructor() { }
+  processing:boolean = true;
 
   ngOnInit() {
+  }
+
+  onNotify(isProcessing : boolean){
+    this.processing = isProcessing;
   }
 
 }

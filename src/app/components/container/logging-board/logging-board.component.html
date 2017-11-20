@@ -1,23 +1,9 @@
 <mat-toolbar color="primary">
-      <header-nav title ="Logging"></header-nav>
-      <mat-icon class="example-icon fa fa-book"></mat-icon>
+  <header-nav title="Logging"></header-nav>
+  <mat-icon class="example-icon fa fa-book"></mat-icon>
 </mat-toolbar>
-
-<div class="query-container mat-elevation-z8">
-  <div class="query-header">
-    <mat-form-field floatPlaceholder="never">
-      <input matInput placeholder="Search Log">
-    </mat-form-field>
-    <span class = "fa fa-play query_play" [ngStyle]="{'float':'right'}" title="Execute"></span>
-  </div>
-<hr [ngStyle]="{'width':'98%'}"/>
-  <div>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-</div>
+<mat-progress-bar
+          class="example-margin"
+          color="warn"
+          mode="indeterminate" *ngIf = "processing"></mat-progress-bar>
+<logging-container (isProcessing) = "notify($event)"></logging-container>

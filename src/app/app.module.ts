@@ -4,7 +4,7 @@ import { MaterialModule } from './material.module';
 import { TreeModule } from 'primeng/primeng';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelModule } from 'primeng/primeng';
-import { MatExpansionModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatGridList, MatGridTile } from '@angular/material';
+import { MatProgressBarModule, MatExpansionModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatGridList, MatGridTile } from '@angular/material';
 import { RouterModule } from '@angular/router'
 import { GrowlModule } from 'primeng/primeng';
 import { HttpModule } from '@angular/http';
@@ -27,12 +27,17 @@ import {
   DishInfoAccordianComponent,
   LoggingBoardComponent,
   DashboardComponent,
-  DishDetailsComponent
+  DishDetailsComponent,
+  LoggingResponseContainerComponent,
+  LoggingContainerComponent
 } from './components/index'
 
 import {
   DishService,
-  ChefHierarchyService
+  ChefHierarchyService,
+  ChefService,
+  StorageService,
+  LoggingService
 } from './services/index'
 
 import { appRoutes } from './routes'
@@ -53,7 +58,9 @@ import { appRoutes } from './routes'
     DishInfoAccordianComponent,
     LoggingBoardComponent,
     DashboardComponent,
-    DishDetailsComponent
+    DishDetailsComponent,
+    LoggingResponseContainerComponent,
+    LoggingContainerComponent
 
   ],
   imports: [
@@ -70,11 +77,15 @@ import { appRoutes } from './routes'
     MatInputModule,
     GrowlModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
   ],
   providers: [
     DishService,
-    ChefHierarchyService],
+    ChefHierarchyService,
+    ChefService,
+    StorageService,
+    LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,28 +2,42 @@ import { Injectable, OnInit } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Subject } from 'rxjs/Rx'
 import { Dish } from '../components/shared/index'
+import { StorageService } from './storage-service'
 
 @Injectable()
 export class DishService implements OnInit {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private storageService: StorageService) {
 
   }
-  DISHES : Dish[];
-  
+  DISHES: Dish[];
+
   ngOnInit() {
-    
+
   }
 
   getDishes() {
-   return this.httpClient.get<Dish[]>('http://localhost:8089/dishs')
-   .map(response => response);  
+    let dishs = this.httpClient.get<Dish[]>('http://localhost:8380/dishResource/dishsInfo')
+      .map(response => response);
+    this.storageService.save("dishs", dishs);
+    return dishs;
   }
 
   getDishById(id: string) {
-     //return DISHES_LOCAL.find(dish => dish.id === id);
-     return this.httpClient.get<Dish>('http://localhost:8089/dish/'+id)
-     .map(response => response);
+    //return DISHES_LOCAL.find(dish => dish.id === id);
+    return this.httpClient.get<Dish>('http://localhost:8380/dishResource/dish/' + id)
+      .map(response => response);
+  }
+
+  shutdown(id: string) {
+    return this.httpClient.get<string>('http://localhost:8380/dishResource/stop/' + id)
+      .map(response => response);
+
+  }
+
+  reIndex(id: string) {
+    return this.httpClient.get<string>('http://localhost:8380/dishResource/reIndex/' + id)
+      .map(response => response);
   }
 }
 

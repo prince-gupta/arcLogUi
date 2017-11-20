@@ -2,5 +2,10 @@
       <header-nav title ="Dashboard"></header-nav>
       <i class="example-icon fa fa-dashboard"></i>
 </mat-toolbar>
+<mat-progress-bar
+          class="example-margin"
+          color="warn"
+          mode="indeterminate" *ngIf = "processing">
+  </mat-progress-bar>
 <chef-info-container></chef-info-container>
-<dish-info-table></dish-info-table>
+<dish-info-table (isProcessing) = "onNotify($event)"></dish-info-table>

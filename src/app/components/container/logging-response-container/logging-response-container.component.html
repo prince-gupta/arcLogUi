@@ -1,0 +1,8 @@
+<div>
+    <div *ngFor="let dish of response" [ngStyle]="{'padding':'1vw'}">
+      <div class="query_result_header">{{dish.dishName}}</div>
+      <div class="query_result_container">
+        <div *ngFor="let line of dish.result">{{line}}</div>
+    </div>
+  </div>
+</div>
