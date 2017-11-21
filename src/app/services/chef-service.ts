@@ -12,14 +12,14 @@ export class ChefService
     }
     
     getChefMetaInfo(){
-        let metrics = this.httpClient.get<SystemInfo>("http://localhost:8380/info/metrics/")
+        let metrics = this.httpClient.get<SystemInfo>("https://arc-chef.herokuapp.com/info/metrics/")
                         .map(metrics => metrics);
         this.storageService.save("chefMetrics", metrics);
         return (metrics);
     }
 
     getChefInfo(){
-        let info = this.httpClient.get<ChefInfo>("http://localhost:8380/info")
+        let info = this.httpClient.get<ChefInfo>("https://arc-chef.herokuapp.com/info")
         .map(info => info);
 
         this.storageService.save("chefInfo", info);

@@ -17,7 +17,7 @@ export class DishService implements OnInit {
   }
 
   getDishes() {
-    let dishs = this.httpClient.get<Dish[]>('http://localhost:8380/dishResource/dishsInfo')
+    let dishs = this.httpClient.get<Dish[]>('https://arc-chef.herokuapp.com/dishResource/dishsInfo')
       .map(response => response);
     this.storageService.save("dishs", dishs);
     return dishs;
@@ -25,18 +25,18 @@ export class DishService implements OnInit {
 
   getDishById(id: string) {
     //return DISHES_LOCAL.find(dish => dish.id === id);
-    return this.httpClient.get<Dish>('http://localhost:8380/dishResource/dish/' + id)
+    return this.httpClient.get<Dish>('https://arc-chef.herokuapp.com/dishResource/dish/' + id)
       .map(response => response);
   }
 
   shutdown(id: string) {
-    return this.httpClient.get<string>('http://localhost:8380/dishResource/stop/' + id)
+    return this.httpClient.get<string>('https://arc-chef.herokuapp.com/dishResource/stop/' + id)
       .map(response => response);
 
   }
 
   reIndex(id: string) {
-    return this.httpClient.get<string>('http://localhost:8380/dishResource/reIndex/' + id)
+    return this.httpClient.get<string>('https://arc-chef.herokuapp.com/dishResource/reIndex/' + id)
       .map(response => response);
   }
 }

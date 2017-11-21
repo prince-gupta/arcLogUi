@@ -8,7 +8,7 @@ export class LoggingService {
     constructor(private httpClient: HttpClient) { }
 
     query(queryString: string, dishId?:string) {
-        let url:string = 'http://localhost:8380/dishResource/query';
+        let url:string = 'https://arc-chef.herokuapp.com/dishResource/query';
        return this.httpClient.post<QueryResponse[]>(url, {
             queryString: queryString,
             dishId: dishId
