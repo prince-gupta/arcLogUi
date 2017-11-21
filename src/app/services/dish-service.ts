@@ -3,11 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Subject } from 'rxjs/Rx'
 import { Dish } from '../components/shared/index'
 import { StorageService } from './storage-service'
+import { Configuration } from './service-configuration'
 
 @Injectable()
 export class DishService implements OnInit {
 
-  constructor(private httpClient: HttpClient, private storageService: StorageService) {
+  constructor(private httpClient: HttpClient, private storageService: StorageService, private configuration: Configuration) {
 
   }
   DISHES: Dish[];
@@ -17,7 +18,7 @@ export class DishService implements OnInit {
   }
 
   getDishes() {
-    let dishs = this.httpClient.get<Dish[]>('https://arc-chef.herokuapp.com/dishResource/dishsInfo')
+    let dishs = this.httpClient.get<Dish[]>(this.configuration.getFullUrl('dishResource/dishsInfo'))
       .map(response => response);
     this.storageService.save("dishs", dishs);
     return dishs;
@@ -25,18 +26,18 @@ export class DishService implements OnInit {
 
   getDishById(id: string) {
     //return DISHES_LOCAL.find(dish => dish.id === id);
-    return this.httpClient.get<Dish>('https://arc-chef.herokuapp.com/dishResource/dish/' + id)
+    return this.httpClient.get<Dish>('/chef/dishResource/dish/' + id)
       .map(response => response);
   }
 
   shutdown(id: string) {
-    return this.httpClient.get<string>('https://arc-chef.herokuapp.com/dishResource/stop/' + id)
+    return this.httpClient.get<string>('/chef/dishResource/stop/' + id)
       .map(response => response);
 
   }
 
   reIndex(id: string) {
-    return this.httpClient.get<string>('https://arc-chef.herokuapp.com/dishResource/reIndex/' + id)
+    return this.httpClient.get<string>('/chef/dishResource/reIndex/' + id)
       .map(response => response);
   }
 }

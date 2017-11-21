@@ -1,0 +1,7 @@
+{
+    "/chef/*": {
+        "target": "https://arc-chef.herokuapp.com/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

@@ -37,7 +37,8 @@ import {
   ChefHierarchyService,
   ChefService,
   StorageService,
-  LoggingService
+  LoggingService,
+  Configuration
 } from './services/index'
 
 import { appRoutes } from './routes'
@@ -85,7 +86,8 @@ import { appRoutes } from './routes'
     ChefHierarchyService,
     ChefService,
     StorageService,
-    LoggingService],
+    LoggingService,
+    Configuration],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
