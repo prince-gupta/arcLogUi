@@ -26,18 +26,18 @@ export class DishService implements OnInit {
 
   getDishById(id: string) {
     //return DISHES_LOCAL.find(dish => dish.id === id);
-    return this.httpClient.get<Dish>('/chef/dishResource/dish/' + id)
+    return this.httpClient.get<Dish>(this.configuration.getFullUrl('dishResource/dish/' + id))
       .map(response => response);
   }
 
   shutdown(id: string) {
-    return this.httpClient.get<string>('/chef/dishResource/stop/' + id)
+    return this.httpClient.get<string>(this.configuration.getFullUrl('dishResource/stop/' + id))
       .map(response => response);
 
   }
 
   reIndex(id: string) {
-    return this.httpClient.get<string>('/chef/dishResource/reIndex/' + id)
+    return this.httpClient.get<string>(this.configuration.getFullUrl('dishResource/reIndex/' + id))
       .map(response => response);
   }
 }

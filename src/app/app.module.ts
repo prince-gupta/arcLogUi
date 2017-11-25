@@ -4,7 +4,15 @@ import { MaterialModule } from './material.module';
 import { TreeModule } from 'primeng/primeng';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelModule } from 'primeng/primeng';
-import { MatProgressBarModule, MatExpansionModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatGridList, MatGridTile } from '@angular/material';
+import { MatProgressBarModule, 
+  MatExpansionModule, 
+  MatButtonModule, 
+  MatTableModule, 
+  MatFormFieldModule, 
+  MatInputModule, 
+  MatGridList, 
+  MatGridTile,
+  MatSnackBarModule } from '@angular/material';
 import { RouterModule } from '@angular/router'
 import { GrowlModule } from 'primeng/primeng';
 import { HttpModule } from '@angular/http';
@@ -79,7 +87,8 @@ import { appRoutes } from './routes'
     GrowlModule,
     HttpModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [
     DishService,
