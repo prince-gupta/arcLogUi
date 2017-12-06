@@ -26,7 +26,7 @@ export class DishInfoTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subs.unsubscribe();
+    // this.subs.unsubscribe();
   }
 
   populateDishs() {

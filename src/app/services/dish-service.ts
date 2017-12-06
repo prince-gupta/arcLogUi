@@ -1,9 +1,10 @@
 import { Injectable, OnInit } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Subject } from 'rxjs/Rx'
+import { Subject, Observable } from 'rxjs/Rx'
 import { Dish } from '../components/shared/index'
 import { StorageService } from './storage-service'
 import { Configuration } from './service-configuration'
+import * as _ from 'lodash';
 
 @Injectable()
 export class DishService implements OnInit {
@@ -19,26 +20,28 @@ export class DishService implements OnInit {
 
   getDishes() {
     let dishs = this.httpClient.get<Dish[]>(this.configuration.getFullUrl('dishResource/dishsInfo'))
-      .map(response => response);
+      .map(response => _.get(response, 'result.dishsInfo'));
     this.storageService.save("dishs", dishs);
     return dishs;
   }
 
+  
+
   getDishById(id: string) {
     //return DISHES_LOCAL.find(dish => dish.id === id);
     return this.httpClient.get<Dish>(this.configuration.getFullUrl('dishResource/dish/' + id))
-      .map(response => response);
+      .map(response => _.get(response, 'result.dish' + id));
   }
 
   shutdown(id: string) {
     return this.httpClient.get<string>(this.configuration.getFullUrl('dishResource/stop/' + id))
-      .map(response => response);
+      .map(response => _.get(response, 'result.stop' + id));
 
   }
 
   reIndex(id: string) {
     return this.httpClient.get<string>(this.configuration.getFullUrl('dishResource/reIndex/' + id))
-      .map(response => response);
+      .map(response => _.get(response, 'result.reIndex' + id));
   }
 }
 

@@ -34,3 +34,8 @@
   transition: 0.5s ;
   cursor: pointer;
 }
+
+._exec_btn{
+  background: none;
+  border: none;
+}

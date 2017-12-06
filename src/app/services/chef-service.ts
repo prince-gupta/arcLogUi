@@ -7,6 +7,8 @@ import { StorageService } from './storage-service';
 
 import { Configuration } from './service-configuration'
 
+import * as _ from 'lodash';
+
 @Injectable()
 export class ChefService
 {
@@ -17,7 +19,7 @@ export class ChefService
     
     getChefMetaInfo(){
         let metrics = this.httpClient.get<SystemInfo>(this.configuration.getFullUrl("info/metrics/"))
-                        .map(metrics => metrics);
+                        .map(metrics => _.get(metrics,'result.metrics'));
         this.storageService.save("chefMetrics", metrics);
         return (metrics);
     }
