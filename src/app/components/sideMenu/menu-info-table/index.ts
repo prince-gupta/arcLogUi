@@ -1,0 +1,1 @@
+export *  from './menu-info-table.component';

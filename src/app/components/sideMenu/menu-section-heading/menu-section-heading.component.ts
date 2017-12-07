@@ -9,6 +9,7 @@ export class MenuSectionHeadingComponent implements OnInit {
   
   constructor() { }
   @Input() heading:string
+  @Input() caretClass:string
   
   ngOnInit() {
   }

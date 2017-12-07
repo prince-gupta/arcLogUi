@@ -37,7 +37,8 @@ import {
   DashboardComponent,
   DishDetailsComponent,
   LoggingResponseContainerComponent,
-  LoggingContainerComponent
+  LoggingContainerComponent,
+  MenuInfoTableComponent
 } from './components/index'
 
 import {
@@ -69,7 +70,8 @@ import { appRoutes } from './routes'
     DashboardComponent,
     DishDetailsComponent,
     LoggingResponseContainerComponent,
-    LoggingContainerComponent
+    LoggingContainerComponent,
+    MenuInfoTableComponent
 
   ],
   imports: [

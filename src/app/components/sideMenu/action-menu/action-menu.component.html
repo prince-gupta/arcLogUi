@@ -1,6 +1,6 @@
 <div>
-  <menu-section-heading [heading] = "heading"></menu-section-heading>
-  <ul>
+  <menu-section-heading [heading] = "heading" [caretClass] = "caretClass" (click) = "toggleSection()"></menu-section-heading>
+  <ul *ngIf = "!hideSection" >
     <li><a [routerLink] = "['dashboard']" routerLinkActive="action_menu_active"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
     <li><a [routerLink] = "['logging']" routerLinkActive="action_menu_active"><i class="fa fa-book"></i><span>Logging</span></a></li>
   </ul>

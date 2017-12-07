@@ -16,7 +16,9 @@ export class ChefhierarchyComponent implements OnInit {
 
   files: any;
   heading: string;
-
+  hideSection: Boolean = false;
+  caretClass:String = "fa-caret-down";
+  
   ngOnInit() {
     this.heading = "CHEF HIERARCHY";
     this.hierarchyService.getHierarchyTree((files) => {
@@ -27,5 +29,15 @@ export class ChefhierarchyComponent implements OnInit {
         this.files = JSON.parse(files);
       });
     });
+  }
+
+  toggleSection(){
+    this.hideSection = !this.hideSection;
+    if(this.hideSection === true){
+      this.caretClass = "fa-caret-right";
+    }
+    else{
+      this.caretClass = "fa-caret-down";
+    }
   }
 }

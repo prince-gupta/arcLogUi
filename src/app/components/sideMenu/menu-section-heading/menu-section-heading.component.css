@@ -6,3 +6,9 @@
     background-color: hsla(0,0%,100%,.05);
     line-height: 2vw;
 }
+
+.caret-custom{
+    float: right;
+    padding-right: 2vw;
+    padding-top: 0.5vw;
+}

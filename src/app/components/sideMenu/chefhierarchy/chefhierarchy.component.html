@@ -1,6 +1,6 @@
 <div>
-    <menu-section-heading [heading] = "heading"></menu-section-heading>
-    <p-tree [value]="files" selectionMode="single">
+    <menu-section-heading [heading] = "heading" [caretClass] = "caretClass" (click) = "toggleSection()"></menu-section-heading>
+    <p-tree [value]="files" selectionMode="single" *ngIf = "!hideSection">
         <ng-template let-node  pTemplate="parent">
             <div [routerLink]="['/dashboard']" routerLinkActive="hierarchy_active">{{node.label}}</div>
         </ng-template>

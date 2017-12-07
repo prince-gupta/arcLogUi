@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'action-menu',
-  templateUrl: './action-menu.component.html',
-  styleUrls: ['./action-menu.component.css']
+  selector: 'menu-info-table',
+  templateUrl: './menu-info-table.component.html',
+  styleUrls: ['./menu-info-table.component.css']
 })
-export class ActionMenuComponent implements OnInit {
+export class MenuInfoTableComponent implements OnInit {
 
   constructor() { }
-  heading:string ="ACTIONS"
+  heading:String = "INFO TABLE"
   hideSection: Boolean = false;
   caretClass:String = "fa-caret-down";
   ngOnInit() {
