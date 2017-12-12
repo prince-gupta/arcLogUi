@@ -16,3 +16,13 @@
     max-height: 20vw;
     padding: 1vw;
 }
+
+.row_hover:hover{
+  background: lightgray;
+  cursor: pointer;
+}
+
+.download_it:hover{
+  color : #3f51b5;
+  font-size: 18px;
+}

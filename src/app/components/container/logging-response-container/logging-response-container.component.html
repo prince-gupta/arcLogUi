@@ -1,8 +1,13 @@
 <div>
-    <div *ngFor="let dish of response" [ngStyle]="{'padding':'1vw'}">
-      <div class="query_result_header">{{dish.dishName}}</div>
-      <div class="query_result_container">
-        <div *ngFor="let line of dish.result">{{line}}</div>
+  <div *ngFor="let dish of response" [ngStyle]="{'padding':'1vw'}">
+    <div class="query_result_header">{{dish.dishName}}</div>
+    <div class="query_result_container">
+      <table [ngStyle] = "{'width':'100%'}">
+        <tr *ngFor="let line of dish.result;" class = "row_hover">
+          <td style="width:80%">{{line}}</td>
+          <td class="fa fa-download download_it"></td>
+        </tr>
+        </table>
     </div>
   </div>
 </div>

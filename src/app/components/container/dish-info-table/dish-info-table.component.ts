@@ -34,6 +34,9 @@ export class DishInfoTableComponent implements OnInit, OnDestroy {
       dishs =>{
         this.dishes = dishs;
         this.isProcessing.emit(false);
+      },
+      error => {
+        this.isProcessing.emit(false);
       }
     )
   }
